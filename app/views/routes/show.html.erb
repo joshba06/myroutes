@@ -13,8 +13,9 @@
 
   <div class="route-actions">
     <%= link_to '<i class="fa-solid fa-arrow-left"></i>'.html_safe, myroutes_path(), class: "btn btn-outline-primary" %>
-    <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, route_path(@route), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-warning mx-2" %>
-    <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_route_path(@route), class: "btn btn-outline-primary" %>
+    <%= link_to '<i class="fa-solid fa-map-location-dot"></i> Navigate'.html_safe, route_path(@route), class: "btn btn-outline-primary mx-2"%>
+    <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, route_path(@route), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "btn btn-outline-warning" %>
+    <%= link_to '<i class="fa-solid fa-pen-to-square"></i>'.html_safe, edit_route_path(@route), class: "btn btn-outline-primary mx-2" %>
   </div>
 
   <div class="route-content my-1">
