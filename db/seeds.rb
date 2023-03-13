@@ -43,7 +43,7 @@ route1.photo.attach(io: routepic1, filename: "rp1.jpg", content_type: "image/jpg
 
 
 dest1 = Destination.create!(latitude: 51.508530, longitude: -0.076132, title: "Tower of London", user: user1, city: "London")
-RouteDestination.create!(route: route1, destination: dest1, order: 1)
+RouteDestination.create!(route: route1, destination: dest1, position: 1)
 destpic1 = URI.open("https://res.cloudinary.com/dcuj8efm3/image/upload/v1678286626/toweroflondon_wowyrp.jpg")
 dest1.photo.attach(io: destpic1, filename: "dp1.jpg", content_type: "image/jpg")
 

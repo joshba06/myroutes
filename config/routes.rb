@@ -6,10 +6,24 @@ Rails.application.routes.draw do
   get '/routes', to: 'routes#index', as: :myroutes
   get '/maptest', to: 'pages#directionstestpage', as: :directionstestpage
 
+
   # Defines the root path route ("/")
   # root "articles#index"
   resources :routes do
-    resources :destinations, except: [:destroy]
+
+    resources :destinations, except: [:destroy] do
+      member do
+        patch :move
+      end
+    end
+
+    resources :route_destinations, except: [:destroy] do
+      member do
+        patch :move
+      end
+    end
+
   end
+
   resources :destinations, only: [:destroy]
 end

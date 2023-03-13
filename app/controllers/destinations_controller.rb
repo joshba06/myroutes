@@ -34,6 +34,12 @@ class DestinationsController < ApplicationController
     @destination.update(destination_params)
   end
 
+  def move
+    @destination = Destination.find(params[:id])
+    @destination.insert_at(params[:position].to_i)
+    head :ok
+  end
+
   def destroy
     @destination = Destination.find(params[:id])
     @destination.destroy
