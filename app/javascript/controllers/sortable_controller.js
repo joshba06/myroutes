@@ -35,7 +35,10 @@ export default class extends Controller {
 
     fetch(formAction, {
       method: "PATCH",
-      // headers: { "Accept": "application/json" },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': Rails.csrfToken()
+      },
       body: data
     })
       .then(response => response.json())
