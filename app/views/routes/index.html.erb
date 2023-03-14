@@ -1,0 +1,53 @@
+<div class="heading">
+  <h1>Welcome, <%= current_user.first_name.capitalize %>!</h1>
+  <%= link_to "Add a new route", new_route_path, class: "btn btn-success mx-2"%>
+</div>
+
+<div class="main-container">
+  <div class="cards-routes">
+    <h1>Your saved routes</h1>
+    <% @routes.each do |route| %>
+      <div class="card-route">
+        <div class="card-route-status px-3 py-2">
+          <div class="location border">
+            <%= link_to route_path(route) do %>
+              <button type="button" class="btn btn-outline-primary w-100"><%= route.city %></button>
+            <% end %>
+          </div>
+          <div class="route-action">
+            <%= link_to 'Route details', route_path(route), class: "btn btn-outline-primary mx-2"%>
+            <%# For sights %>
+            <%= link_to '<i class="fa-solid fa-map-location-dot"></i> Navigate'.html_safe, route_path(route), class: "btn btn-outline-primary mx-2"%>
+            <%# <%= url = "https://www.google.com/maps/dir/?api=1&origin=#{Destination.find(route.route_destinations[0].destination_id).title.gsub(/\s/, "+")}%2C#{Destination.find(route.route_destinations[0].destination_id).city.gsub(/\s/, "+")}}&destination=#{Destination.find(route.route_destinations[1].destination_id).title.gsub(/\s/, "+")}%2C#{Destination.find(route.route_destinations[1].destination_id).city.gsub(/\s/, "+")}&travelmode=walking" %>
+            <%# <% route.route_destinations.each_with_index do |destination, index| %>
+              <%# <% if index != 0 || index != 1 do %>
+                <%# <% url << %>
+                <%# <% end %>
+                <%# <% end %>
+              </div>
+            </div>
+            <div class="card-route-details px-3 pb-2">
+              <div class="route-title-and-img">
+                <div class="img">
+                  <%= link_to route_path(route) do %>
+                    <% if route.photo.attached? %>
+                      <%= cl_image_tag route.photo.key, class: "avatar-bordered-large" %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <h2><%= route.title %></h2>
+                </div>
+              </div>
+              <div class="route-specs px-3">
+                <%= route.route_destinations.length %> stops
+                <br>
+                <%= route.time %> min
+                <br>
+                <%= route.distance %> km
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>

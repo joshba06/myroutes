@@ -1,0 +1,64 @@
+// src/controllers/sortable_controller.js
+
+import { Controller } from "@hotwired/stimulus";
+import Rails from "rails-ujs";
+import Sortable from "sortablejs";
+
+export default class extends Controller {
+  // static targets = ["results"];
+
+  connect() {
+    console.log("Sortable controller is connected!");
+
+    this.sortable = Sortable.create(this.element, {
+      animation: 150,
+      ghostClass: "blue-background-class",
+      onEnd: this.end.bind(this),
+    });
+
+    console.log(this.element.dataset.count);
+    console.log(this.element.dataset.routeDestinationsCount);
+  }
+
+  end(event) {
+    console.log(event);
+
+    // * Route Destination ID
+    let id = event.item.dataset.id;
+    console.log(id);
+
+    console.log(this.element.dataset.count);
+
+    let data = new FormData();
+
+    if (event.newIndex === 0) {
+      data.append("position", 1);
+    } else if (event.newIndex > this.element.dataset.count * 2) {
+      data.append("position", this.element.dataset.count);
+    } else {
+      data.append("position", event.newIndex / 2 + 1);
+    }
+
+    for (const [key, value] of data.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // * Route ID
+    let routeId = this.element.dataset.routeId;
+    console.log(routeId);
+
+    Rails.ajax({
+      url: this.data.get("url").replace(":id", id),
+      type: "PATCH",
+      data: data,
+      success: function () {
+        console.log("Try to get a updated map.");
+        document.location.reload();
+
+        // fetch(`/routes/${routeId}`)
+        //   .then((res) => res.json())
+        //   .then((data) => console.log(data));
+      },
+    });
+  }
+}
