@@ -65,7 +65,13 @@
           </div>
           <div class="destination-text">
             <span class="destination-title"><%= destination.title %></span> <%= link_to '<i class="fa-regular fa-trash-can"></i>'.html_safe, destination_path(destination), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}%><br>
-            <span class="destination-address"><%= destination.address.split(",")[1..-1].join(", ") %></span>
+            <span class="destination-address">
+              <% if destination.title == "Custom location" %>
+                <%= destination.address%>
+              <% else %>
+                <%= destination.address.split(",")[1..-1].join(", ")%>
+              <% end %>
+            </span>
           </div>
         </div>
         <% unless index == (@route.destinations.length - 1) %>
