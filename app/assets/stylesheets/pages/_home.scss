@@ -1,19 +1,17 @@
-// Specific CSS for your home-page
-
 .home-video {
   width: 100%;
-  height: calc(100vh - 56.5px);
+  height: calc(54vh - 40px);
   object-fit: cover;
-  opacity: 0.7;
+}
+
+.disable-scrolling {
+  height: 100%;
+  overflow: hidden;
+
 }
 
 .banner {
   position: relative;
-}
-
-.scroll-btn {
-  position: absolute;
-  bottom: 26px;
 }
 
 .btn-byj {
@@ -33,7 +31,7 @@
 }
 
 .btn-lg {
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .banner-content {
@@ -45,11 +43,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px !important;
+  padding-top: 10px !important;
 
 }
 #home-title {
-  font-size: 170px;
+  font-size: 120px;
   font-family: sans-serif;
   font-weight: 400;
   color: #ffffff;
@@ -57,12 +55,11 @@
 }
 
 .home-animation {
-  // width: 200px;
   height: 120px;
 }
 .cards-instructions {
-  width: 80vw;
-  margin: 5px auto;
+  width: 90vw;
+  margin: 20px auto;
   display: flex;
   color: #FFFFFF;
   justify-content: space-between;
@@ -70,13 +67,13 @@
 }
 
 .card-step {
-  width: 350px;
-  height: 200px;
+  width: 395px;
+  height: 240px;
   font-display: left;
   margin-top: 25px;
-  margin-left: 15px;
-  margin-right: 15px;
-  background: #285c7c;
+  margin-left: 25px;
+  margin-right: 25px;
+  background: #1A3F80;
   border-radius: 15px;
   box-shadow: 0 0 5px #FFFFFF;
   img {
@@ -120,7 +117,7 @@ a{
 .testimonial-heading span{
   font-size: 1.3rem;
   color: #252525;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -231,7 +228,7 @@ btn-byj {
   font-family: sans-serif;
   box-sizing: round($number: 15);
   margin-top: 25px;
-  padding: 8px 24px;
+  padding: 8px 4px;
   &:hover {
 
   }
