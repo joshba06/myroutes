@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+<h1>How it works</h1>
+This is a MVP for a route creation and management app calles <a href="http://www.my-routes.co.uk">myRoutes</a><br><br>
+Please login with email: "rachel@gmail.com" and password "rachel" to get a preview of what this app makes possible. The signup function does not work just yet.
